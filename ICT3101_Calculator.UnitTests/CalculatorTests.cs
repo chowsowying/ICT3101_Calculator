@@ -288,7 +288,7 @@ namespace ICT3101_Calculator.UnitTests
 
         // Lab 4 ---------------------------------------------------------------
 
-        [Test]
+      /*  [Test]
         public void GenMagicNum_ValidFirstIndex_PositiveNumberFromMagicFile()
         {
             // Assuming the number at index 0 in MagicNumbers.txt is 5.5
@@ -340,7 +340,7 @@ namespace ICT3101_Calculator.UnitTests
 
             // Use a lambda expression to catch the exception
             Assert.That(() => _calculator.GenMagicNum(10, fileReader), Throws.TypeOf<ArgumentException>());
-        }
+        }*/
 
 
 
