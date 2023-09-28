@@ -285,5 +285,64 @@ namespace ICT3101_Calculator.UnitTests
             Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException);
         }
 
+
+        // Lab 4 ---------------------------------------------------------------
+
+        [Test]
+        public void GenMagicNum_ValidFirstIndex_PositiveNumberFromMagicFile()
+        {
+            // Assuming the number at index 0 in MagicNumbers.txt is 5.5
+
+            // Create an instance of FileReader
+            IFileReader fileReader = new FileReader();
+
+            // Call GenMagicNum with the fileReader instance
+            double result = _calculator.GenMagicNum(0, fileReader);
+
+            Assert.That(result, Is.EqualTo(11));
+        }
+
+        [Test]
+        public void GenMagicNum_ValidPositiveIndex_PositiveNumberFromMagicFile()
+        {
+            // Assuming the number at index 1 in MagicNumbers.txt is 10.2
+
+            // Create an instance of FileReader
+            IFileReader fileReader = new FileReader();
+
+            // Call GenMagicNum with the fileReader instance
+            double result = _calculator.GenMagicNum(1, fileReader);
+
+            Assert.That(result, Is.EqualTo(20.4));
+        }
+
+        [Test]
+        public void GenMagicNum_ValidNegativeIndex_NegativeNumberFromMagicFile()
+        {
+            // Assuming the number at index 4 in MagicNumbers.txt is -12.5
+
+            // Create an instance of FileReader
+            IFileReader fileReader = new FileReader();
+
+            // Call GenMagicNum with the fileReader instance
+            double result = _calculator.GenMagicNum(4, fileReader);
+
+            Assert.That(result, Is.EqualTo(25));
+        }
+
+        [Test]
+        public void GenMagicNum_InvalidIndex_ThrowsIndexOutOfRangeException()
+        {
+            // This should throw an exception since there might not be a 10th number in the file
+
+            // Create an instance of FileReader
+            IFileReader fileReader = new FileReader();
+
+            // Use a lambda expression to catch the exception
+            Assert.That(() => _calculator.GenMagicNum(10, fileReader), Throws.TypeOf<ArgumentException>());
+        }
+
+
+
     }
 }

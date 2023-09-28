@@ -264,5 +264,30 @@ namespace ICT3101_Calculator
             double modifiedKloc = changedKloc * (modifiedPercent / 100);
             return initialKloc + changedKloc - modifiedKloc - deletedKloc;
         }
+
+        // Lab 4-------------------------------------------------------
+        public double GenMagicNum(double input, IFileReader fileReader)
+        {
+            if (input > 5)
+            {
+                throw new ArgumentException("Choose a number between 0-4");
+            }
+
+            double result = 0;
+            int choice = Convert.ToInt16(input);
+
+            // Use the provided IFileReader instance
+            string[] magicStrings = fileReader.Read("C:\\Users\\chows\\source\\repos\\ICT3101_Calculator\\ICT3101_Calculator\\MagicNumbers.txt");
+
+            if ((choice >= 0) && (choice < magicStrings.Length))
+            {
+                result = Convert.ToDouble(magicStrings[choice]);
+            }
+            result = (result > 0) ? (2 * result) : (-2 * result);
+            return result;
+        }
+
+
+
     }
 }
