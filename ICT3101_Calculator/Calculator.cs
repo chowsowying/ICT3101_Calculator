@@ -277,7 +277,7 @@ namespace ICT3101_Calculator
             int choice = Convert.ToInt16(input);
 
             // Use the provided IFileReader instance
-            string[] magicStrings = fileReader.Read("C:\\Users\\chows\\source\\repos\\ICT3101_Calculator\\ICT3101_Calculator\\MagicNumbers.txt");
+            string[] magicStrings = fileReader.Read("MagicNumbers.txt");
 
             if ((choice >= 0) && (choice < magicStrings.Length))
             {
